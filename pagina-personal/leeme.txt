@@ -1,0 +1,48 @@
+﻿# PáginaPersonal — Sitio Web Personal
+
+Trabajo II · Estándares y Computación Web · UO294914
+
+Sitio web personal estático compuesto por cinco páginas HTML5 con CSS3. Muestra información personal, aficiones, música, videojuegos, películas y libros.
+
+## Estructura
+
+```
+pagina-personal/
+├── index.html        Página de inicio
+├── profile.html      Perfil personal
+├── audio.html        Bandas de música favoritas
+├── multimedia.html   Videojuegos, películas y series
+├── books.html        Biblioteca personal
+├── style.css         Hoja de estilos común
+└── multimedia/
+    ├── audio/        Archivos de audio (.mp3)
+    ├── photo/        Imágenes (.jpg, .jpeg, .png)
+    └── video/        Clips de vídeo (.mp4)
+```
+
+## Despliegue
+
+No tiene dependencias ni proceso de build. Requiere servidor HTTP local para cargar los recursos multimedia correctamente:
+
+```bash
+cd pagina-personal
+npx serve .
+# http://localhost:3000
+```
+
+## Páginas
+
+| Página | Descripción |
+|---|---|
+| index.html | Bienvenida e introducción |
+| profile.html | Información personal, intereses y experiencia |
+| audio.html | Tres bandas favoritas con audio incrustado |
+| multimedia.html | Videojuegos y películas/series con imágenes y vídeo |
+| books.html | Cuatro libros de fantasía reseñados |
+
+## Tecnologías
+
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura semántica (header, main, nav, section, article, figure) |
+| CSS3 | Diseño responsive, flexbox, transiciones |
