@@ -1,73 +1,413 @@
 body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
-    color: #333;
+    color: #2b2d42;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #1d6fa5;
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: #155885;
+}
+
+mark {
+    background-color: #fef08a;
+    color: #1e293b;
+    padding: 0.0625rem 0.25rem;
+    border-radius: 0.2rem;
+    font-weight: 600;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+select:focus-visible {
+    outline: 0.1875rem solid #f39c12;
+    outline-offset: 0.125rem;
+}
+
+body > a[href="#contenido-principal"] {
+    position: fixed;
+    top: 0.75rem;
+    left: -9999px;
+    z-index: 1000;
+    background-color: #ffffff;
+    color: #2c3e50;
+    padding: 0.625rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+}
+
+body > a[href="#contenido-principal"]:focus {
+    left: 0.75rem;
 }
 
 header {
     background-color: #2c3e50;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-nav a, 
-nav a:visited {
     color: #ffffff;
-    text-decoration: none; 
-    font-weight: bold;
-    padding: 1rem;
-    border-radius: 0.25rem;
-    border: 0.125rem solid transparent;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-nav a:hover, 
-nav a:focus {
-    background-color: #ffffff;
-    color: #2c3e50;
-    border: 0.125rem solid #ffffff;
-    outline: none;
-}
-
-main {
-    max-width: 56.25rem;
-    margin: 1rem auto;
-    padding: 0 1rem;
-}
-
-section {
-    background: white;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
-}
-
-h1, h2, h3 {
-    color: #2c3e50;
-    line-height: 1.2;
+    padding: 2.5rem 0.75rem 1rem;
+    text-align: center;
+    position: relative;
 }
 
 header h1 {
-    color: white;
-    font-size: 2rem;
+    color: #ffffff;
+    font-size: 1.625rem;
     margin: 0;
 }
 
-figure {
+header h1 a,
+header h1 a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header h1 a:hover,
+header h1 a:focus-visible {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+header > p {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    margin: 0.35rem 0 0;
+}
+
+header nav {
+    margin-top: 0.75rem;
+}
+
+header nav ul {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+header nav a,
+header nav a:visited {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.75rem;
+    min-height: 2.75rem;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    border: 0.125rem solid transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+    background-color: #ffffff;
+    color: #2c3e50;
+    border-color: #ffffff;
+}
+
+header nav a[aria-current="page"] {
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-weight: 700;
+    border-color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+header search {
+    margin-top: 0.85rem;
+    display: flex;
+    justify-content: center;
+}
+
+header search form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 34rem;
+}
+
+header search label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0;
+    display: inline;
+}
+
+header search input[type="search"] {
+    flex: 1;
+    min-width: 12rem;
+    max-width: 18rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 0.125rem solid #ffffff;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    min-height: 2.25rem;
+}
+
+header search button[type="submit"] {
+    padding: 0.35rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background-color: #1d6fa5;
+    color: #ffffff;
+    border: 0.125rem solid #ffffff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    min-height: 2.25rem;
+    width: auto;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header search button[type="submit"]:hover,
+header search button[type="submit"]:focus-visible {
+    background-color: #ffffff;
+    color: #2c3e50;
+}
+
+header form[aria-label="Selector de idioma"] {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+header form[aria-label="Selector de idioma"] label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0;
+    display: inline;
+}
+
+header form[aria-label="Selector de idioma"] select {
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border: 0.125rem solid #ffffff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    min-height: 2rem;
+    width: auto;
+}
+
+main {
+    width: 100%;
+    max-width: 56.25rem;
+    box-sizing: border-box;
+    margin: 1rem auto;
+    padding: 0 0.75rem;
+    flex: 1;
+}
+
+nav[aria-label="Migas de pan"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #2b2d42;
+}
+
+nav[aria-label="Migas de pan"] p {
+    margin: 0;
+    font-weight: 600;
+}
+
+nav[aria-label="Migas de pan"] ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+nav[aria-label="Migas de pan"] li {
+    display: inline-flex;
+    align-items: center;
+}
+
+nav[aria-label="Migas de pan"] li + li::before {
+    content: ">";
+    margin-right: 0.4rem;
+    color: #555555;
+    font-weight: 400;
+}
+
+nav[aria-label="Migas de pan"] a {
+    font-weight: 600;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 1.125rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.08);
+}
+
+article:target,
+section:target {
+    scroll-margin-top: 2rem;
+    box-shadow: 0 0 0 0.1875rem #2980b9, 0 0.25rem 0.625rem rgba(41, 128, 185, 0.25);
+    transition: box-shadow 0.3s ease;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h1, h2, h3, h4 {
+    color: #2c3e50;
+    line-height: 1.25;
+}
+
+h2,
+section > h3:first-child {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.125rem solid #e2e8f0;
+}
+
+h3, h4 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+main ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 1rem;
+}
+
+main ul:last-child {
+    margin-bottom: 0;
+}
+
+main li {
+    margin-bottom: 0.4rem;
+}
+
+main li:last-child {
+    margin-bottom: 0;
+}
+
+section[aria-labelledby="resumen-secciones"] ul,
+section > ol,
+section[aria-labelledby="referencias-avales"] ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+section[aria-labelledby="resumen-secciones"] li,
+section[aria-labelledby="referencias-avales"] li {
+    margin-bottom: 0;
+}
+
+section[aria-labelledby="resumen-secciones"] article,
+section[aria-labelledby="referencias-avales"] article {
+    height: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+section > ol li {
+    background-color: #f8f9fa;
+    border: 0.0625rem solid #e2e8f0;
+    border-left: 0.25rem solid #1d6fa5;
+    border-radius: 0.375rem;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0;
+}
+
+section > ol h3 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    font-size: 1.125rem;
+}
+
+section > ol p {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+section > ol p:last-child {
+    margin-bottom: 0;
+}
+
+section > ol h4,
+section[aria-labelledby="referencias-avales"] h4 {
+    margin-bottom: 0.35rem;
+}
+
+section[aria-labelledby="referencias-avales"] address {
+    font-style: normal;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+article {
+    background-color: #f8f9fa;
+    border: 0.0625rem solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+figure {
+    margin: 0 0 1rem 0;
     text-align: center;
 }
 
@@ -93,14 +433,36 @@ video {
 
 figcaption {
     font-size: 0.9rem;
-    color: #666;
+    color: #555555;
     margin-top: 0.5rem;
     font-style: italic;
 }
 
 audio {
     width: 100%;
-    margin-top: 1rem;
+    max-width: 37.5rem;
+    display: block;
+    margin: 1rem auto 0;
+}
+
+details {
+    margin-top: 0.875rem;
+    padding: 0.625rem 0.875rem;
+    background-color: #ffffff;
+    border: 0.0625rem solid #cbd5e1;
+    border-radius: 0.25rem;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+details p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.95rem;
 }
 
 form {
@@ -137,55 +499,145 @@ input, textarea, button {
 }
 
 button {
-    background-color: #3498db;
-    color: white;
+    background-color: #1d6fa5;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     font-weight: bold;
     min-height: 2.75rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 button:hover,
-button:focus {
-    background-color: #2980b9;
-    outline: none;
+button:focus-visible {
+    background-color: #155885;
+}
+
+address {
+    font-style: normal;
+}
+
+section#retroalimentacion address {
+    background-color: #f8f9fa;
+    border: 0.0625rem solid #e2e8f0;
+    border-left: 0.25rem solid #1d6fa5;
+    border-radius: 0.375rem;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+}
+
+section#retroalimentacion address ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+section#retroalimentacion address li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+section#retroalimentacion address li:last-child {
+    margin-bottom: 0;
 }
 
 footer {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     background-color: #2c3e50;
-    color: white;
+    color: #ffffff;
     margin-top: auto;
 }
 
+footer p {
+    margin: 0.25rem 0;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 0.5rem;
+}
+
 footer a {
-    color: #3498db;
-    padding: 0.5rem;
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.25rem;
     display: inline-block;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-article {
-    background-color: #f8f9fa;
-    border: 0.0625rem solid #e2e8f0;
-    border-radius: 0.375rem;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-article:last-child {
-    margin-bottom: 0;
+footer a:hover,
+footer a:focus-visible {
+    background-color: #ffffff;
+    color: #2c3e50;
 }
 
 @media (min-width: 48rem) {
     header {
-        padding: 2rem;
+        padding: 1.75rem 1rem;
     }
+
+    header {
+        padding: 1.75rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header nav {
+        margin-top: 1rem;
+    }
+
+    header search {
+        margin-top: 1rem;
+    }
+
+    header form[aria-label="Selector de idioma"] {
+        top: 1.25rem;
+        right: 1.5rem;
+        margin-top: 0;
+    }
+
+    header form[aria-label="Selector de idioma"] label {
+        font-size: 0.95rem;
+    }
+
+    header form[aria-label="Selector de idioma"] select {
+        font-size: 0.95rem;
+        padding: 0.35rem 0.625rem;
+        min-height: 2.25rem;
+    }
+
+    header nav ul {
+        gap: 0.75rem;
+    }
+
+    header nav a,
+    header nav a:visited {
+        padding: 0.625rem 1rem;
+        font-size: 1rem;
+    }
+
     main {
         margin: 2rem auto;
+        padding: 0 1rem;
     }
+
     section {
         padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    article {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    section[aria-labelledby="resumen-secciones"] ul,
+    section[aria-labelledby="referencias-avales"] ul {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

@@ -5,36 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Mi rincón web</title>
     <meta name="description" content="Sitio web personal con información, aficiones y proyectos.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-pagina="index">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
-        <h1>Mi rincón web</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="profile.html">Mi Perfil</a>
-            <a href="audio.html">Mi Música</a>
-            <a href="multimedia.html">Mis Videojuegos, Películas y Series</a>
-            <a href="books.html">Mis Libros</a>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" aria-current="page" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
         </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
     </header>
 
-    <main>
+    <main id="contenido-principal">
         <section>
-            <h2>Información Personal</h2>
-            <article>
-                <h3>Sobre Mí</h3>
-                <p>¡Hola! Soy Nacho, un graduado en Ingeniería Informática por la universidad de oviedo y actualmente estudiante del Máster en Ingeniería Web.</p>
-                <p>Esta página muestra algunos datos interesantes sobre mí, permitiendome plasmarlo dentro de una página web. Si quieres comenzar a conocerme puedes acceder a la sección de "Mi Perfil".</p>
+            <h2 data-i18n="index_info_personal_h2">Información Personal</h2>
+            <article id="sobre-mi">
+                <h3 data-i18n="index_sobre_mi_h3">Sobre Mí</h3>
+                <p data-i18n="index_sobre_mi_p1">¡Hola! Soy Nacho, un graduado en Ingeniería Informática por la Universidad de Oviedo y actualmente estudiante del Máster en Ingeniería Web.</p>
+                <p data-i18n="index_sobre_mi_p2">Esta página muestra algunos datos interesantes sobre mí, permitiéndome plasmarlo dentro de una página web. Si quieres comenzar a conocerme puedes acceder a la sección de "Mi Perfil".</p>
             </article>
         </section>
     </main>
 
     <footer>
-        <p>Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
         <address>
-            Email de contacto: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </address>
     </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
 </body>
 </html>

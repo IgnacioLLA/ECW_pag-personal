@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="ayuda_title">Ayuda y Guía del Sitio - Mi rincón web</title>
+    <meta name="description" content="Guía de secciones, orientación sobre los contenidos del sitio y canal de retroalimentación." data-i18n="ayuda_meta_desc">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-pagina="ayuda">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
+    <header>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
+        </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
+    </header>
+
+    <main id="contenido-principal">
+        <nav aria-label="Migas de pan">
+            <p data-i18n="migas_estas_en">Estás en:</p>
+            <ol>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li aria-current="page"><strong data-i18n="ayuda_migas">Ayuda</strong></li>
+            </ol>
+        </nav>
+
+        <section id="guia-secciones">
+            <h2 data-i18n="ayuda_h2_guia">Guía y Explicación de las Secciones</h2>
+            <p data-i18n="ayuda_p_intro">Para facilitarte la navegación por mi rincón web, en esta página te explico brevemente de qué trata cada uno de los apartados del menú y qué tipo de información o recursos multimedia vas a encontrar en ellos.</p>
+            
+            <article id="ayuda-inicio">
+                <h3><a href="index.html" data-i18n="ayuda_inicio_h3">Inicio</a></h3>
+                <p data-i18n="ayuda_inicio_p">Es la puerta de entrada al sitio. Aquí encontrarás una bienvenida y un breve resumen sobre quién soy, mis estudios de Ingeniería Informática y el Máster en Ingeniería Web en la Universidad de Oviedo, y el propósito con el que creé este espacio web.</p>
+            </article>
+
+            <article id="ayuda-perfil">
+                <h3><a href="profile.html" data-i18n="ayuda_perfil_h3">Mi Perfil</a></h3>
+                <p data-i18n="ayuda_perfil_p">Aquí profundizo en mi trayectoria personal y profesional: mi edad (22 años), mis aficiones cotidianas (mis gatas Hestia y Xana, mi perro Seiba, la guitarra y los juegos de mesa), mi experiencia laboral de prácticas en la empresa TRAGSATEC como desarrollador con Spring Boot y React, mi Trabajo de Fin de Grado (MatchTFE) y los avales de mis tutores académicos.</p>
+            </article>
+
+            <article id="ayuda-musica">
+                <h3><a href="audio.html" data-i18n="ayuda_musica_h3">Mi Música</a></h3>
+                <p data-i18n="ayuda_musica_p">Una selección de mis tres bandas y proyectos musicales favoritos (EPIC: The Musical, Saurom y Hadadanza), centrados en el Folk Metal y las narrativas conceptuales. En cada una dispones de fragmentos de audio para escuchar directamente, junto con transcripciones y descripciones accesibles.</p>
+            </article>
+
+            <article id="ayuda-multimedia">
+                <h3><a href="multimedia.html" data-i18n="ayuda_multi_h3">Mis Videojuegos, Películas y Series</a></h3>
+                <p data-i18n="ayuda_multi_p">Espacio dedicado a las obras interactivas y audiovisuales que más me han marcado. Incluye comentarios personales, capturas y clips de vídeo de títulos como The Legend of Zelda: Majora's Mask, Dark Souls III, For Honor, Piratas del Caribe, Castle y Dr. House.</p>
+            </article>
+
+            <article id="ayuda-libros">
+                <h3><a href="books.html" data-i18n="ayuda_libros_h3">Mis Libros</a></h3>
+                <p data-i18n="ayuda_libros_p">Mi biblioteca personal con reseñas de mis cuatro libros y sagas favoritas de fantasía y ciencia ficción (Juramentada, El Nombre del Viento, La Espada del Destino y El Ómnibus de Eisenhorn), acompañadas por fotografías, anécdotas y detalles de sus autores (Brandon Sanderson, Patrick Rothfuss, Andrzej Sapkowski y Dan Abnett).</p>
+            </article>
+
+            <article id="ayuda-buscador">
+                <h3><a href="buscar.html" data-i18n="ayuda_buscador_h3">Buscador del Sitio</a></h3>
+                <p data-i18n="ayuda_buscador_p">Ubicado en la cabecera de todas las páginas, te permite localizar al instante cualquier término, tecnología, autor o canción en tiempo real, mostrándote el fragmento exacto donde se menciona resaltado con enlace directo al ancla.</p>
+            </article>
+        </section>
+
+        <section id="retroalimentacion">
+            <h2 data-i18n="ayuda_h2_contacto">Retroalimentación y Asistencia</h2>
+            <p data-i18n="ayuda_p_contacto1">Si tienes alguna duda sobre el contenido de la web, encuentras algún problema de navegación o accesibilidad, o necesitas cualquier tipo de asistencia o aclaración, no dudes en ponerte en contacto conmigo enviándome un correo electrónico:</p>
+            <address>
+                <ul>
+                    <li><strong data-i18n="ayuda_label_email">Dirección de correo: </strong>UO294914@uniovi.es</li>
+                    <li><strong data-i18n="ayuda_label_github">Código y proyectos: </strong><a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">github.com/IgnacioLLA</a></li>
+                </ul>
+            </address>
+            <p data-i18n="ayuda_p_contacto2">Estaré encantado de recibir tus comentarios y sugerencias para seguir mejorando este espacio web.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
+        <address>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </address>
+    </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="search.js" defer></script>
+</body>
+</html>

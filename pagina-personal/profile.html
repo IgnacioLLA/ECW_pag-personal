@@ -5,46 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - Mi rincón web</title>
     <meta name="description" content="Biografía personal, aficiones y trayectoria profesional.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-pagina="profile">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
-        <h1>Mi rincón web</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="profile.html">Mi Perfil</a>
-            <a href="audio.html">Mi Música</a>
-            <a href="multimedia.html">Mis Videojuegos, Películas y Series</a>
-            <a href="books.html">Mis Libros</a>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" aria-current="page" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
         </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
     </header>
 
-    <main>
+    <main id="contenido-principal">
+        <nav aria-label="Migas de pan">
+            <p data-i18n="migas_estas_en">Estás en:</p>
+            <ol>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li aria-current="page"><strong data-i18n="nav_perfil">Mi Perfil</strong></li>
+            </ol>
+        </nav>
         <section>
-            <h2>Sobre Mí</h2>
-            
-            <article>
-                <figure>
-                    <img src="multimedia/photo/me.jpeg" alt="Mi fotografía personal" width="300" height="300">
-                </figure>
-                
-                <h3>¿Quién soy?</h3>
-                <p>¡Buenas! Como comentaba antes, soy Nacho, tengo 22 años y soy graduado en Ingeniería Informática por la Universidad de Oviedo y actualmente estudiante del Máster en Ingeniería Web. Esto es un pequeño proyecto para la asignatura de Estándares y Computación Web, como habrás visto en el footer.</p>
-            
-                <h3>Mis Intereses</h3>
-                <p>Me encantan los animales, tengo dos gatas llamadas Hestia y Xana además de un perro llamado Seiba. Me gusta escuchar música, los videojuegos y leer libros (principalmente de fantasía). He jugado durante muchos años al balonmano y toco la guitarra española y eléctrica. Me encantan los juegos de cartas y de mesa.</p>
+            <h2 data-i18n="profile_h2">Mi Perfil</h2>
+            <figure>
+                <img src="multimedia/photo/me.jpeg" alt="Retrato de Ignacio Llaneza Aller" width="300" height="326" data-i18n-alt="profile_foto_alt">
+                <figcaption data-i18n="profile_foto_cap">Ignacio Llaneza Aller (Nacho).</figcaption>
+            </figure>
 
-                <h3>Mi experiencia</h3>
-                <p>He realizado prácticas en la empresa TRAGSATEC durante varios meses desempeñado el rol de desarrollador full-stack. Mi Trabajo de Fin de Grado fue un desarrollo de una plataforma web para publicar ideas de Trabajo de Fin de Estudios. Su objetivo es poner en comunicación estudiantes y profesores con intereses comunes, todo basado en un sistema de taxonomías para agrupar personas y propuestas en base a temáticas. Puedes encontrarlo todo en mi github.</p>
-            </article>
+            <h3 id="quien-soy" data-i18n="profile_quien_soy_h3">¿Quién soy?</h3>
+            <p data-i18n="profile_quien_soy_p">¡Buenas! Como comentaba antes, soy Nacho, tengo 22 años y soy graduado en Ingeniería Informática por la Universidad de Oviedo y actualmente estudiante del Máster en Ingeniería Web. Esto es un pequeño proyecto para la asignatura de Estándares y Computación Web, como habrás visto en el footer.</p>
+        </section>
+
+        <section id="intereses">
+            <h3 data-i18n="profile_intereses_h3">Mis Intereses</h3>
+            <p data-i18n="profile_intereses_p">Me encantan los animales, tengo dos gatas llamadas Hestia y Xana además de un perro llamado Seiba. Me gusta <a href="audio.html">escuchar música</a>, <a href="multimedia.html">los videojuegos y las películas y series</a> y <a href="books.html">leer libros</a> (principalmente de fantasía). He jugado durante muchos años al balonmano y toco la guitarra española y eléctrica. Me encantan los juegos de cartas y de mesa.</p>
+        </section>
+
+        <section id="experiencia">
+            <h3 data-i18n="profile_exp_h3">Mi experiencia</h3>
+            <p data-i18n="profile_exp_p">He realizado prácticas en la empresa TRAGSATEC durante 2 meses desempeñando el rol de desarrollador full-stack con Spring Boot y React. Mi Trabajo de Fin de Grado fue el desarrollo de una plataforma web para publicar ideas de Trabajo de Fin de Estudios. Su objetivo es poner en comunicación estudiantes y profesores con intereses comunes, todo basado en un sistema de taxonomías para agrupar personas y propuestas en base a temáticas. Puedes encontrarlo en el <a href="https://github.com/IgnacioLLA/MatchTFE" target="_blank" rel="noopener noreferrer">repositorio del TFG</a> y en <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">mi GitHub</a>.</p>
+        </section>
+
+        <section aria-labelledby="referencias-avales">
+            <h3 id="referencias-avales" data-i18n="profile_ref_h3">Referencias y Avales</h3>
+            <p data-i18n="profile_ref_p">Tutores académicos de mi Trabajo de Fin de Grado en la Universidad de Oviedo:</p>
+            <ul>
+                <li>
+                    <article>
+                        <h4>Miguel García Rodríguez</h4>
+                        <p data-i18n="profile_tutor1_rel">Cotutor del Trabajo de Fin de Grado (Universidad de Oviedo).</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h4>Luis Antonio Vinuesa Martínez</h4>
+                        <p data-i18n="profile_tutor2_rel">Cotutor del Trabajo de Fin de Grado (Universidad de Oviedo).</p>
+                    </article>
+                </li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
         <address>
-            Email de contacto: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </address>
     </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
 </body>
 </html>

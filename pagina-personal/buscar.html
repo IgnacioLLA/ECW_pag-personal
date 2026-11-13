@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador - Mi rincón web</title>
+    <meta name="description" content="Resultados de búsqueda en el sitio web personal.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-pagina="buscar">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
+    <header>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
+        </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
+    </header>
+
+    <main id="contenido-principal">
+        <nav aria-label="Migas de pan">
+            <p data-i18n="migas_estas_en">Estás en:</p>
+            <ol>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li aria-current="page"><strong data-i18n="buscar_migas">Buscador</strong></li>
+            </ol>
+        </nav>
+        <section>
+            <h2 data-i18n="buscar_h2">Resultados de búsqueda</h2>
+            <p id="resumen-busqueda" aria-live="polite">Introduce un término en el formulario superior para buscar contenidos en el sitio.</p>
+            <ol id="lista-resultados">
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
+        <address>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </address>
+    </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="search.js" defer></script>
+</body>
+</html>

@@ -5,78 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Música - Mi rincón web</title>
     <meta name="description" content="Recopilación de mis bandas favoritas.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-pagina="audio">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
-        <h1>Mi rincón web</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="profile.html">Mi Perfil</a>
-            <a href="audio.html">Mi Música</a>
-            <a href="multimedia.html">Mis Videojuegos, Películas y Series</a>
-            <a href="books.html">Mis Libros</a>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" aria-current="page" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
         </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
     </header>
 
-    <main>
+    <main id="contenido-principal">
+        <nav aria-label="Migas de pan">
+            <p data-i18n="migas_estas_en">Estás en:</p>
+            <ol>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li aria-current="page"><strong data-i18n="nav_musica">Mi Música</strong></li>
+            </ol>
+        </nav>
         <section>
-            <h2>Mis Bandas Favoritas</h2>
-            <p>Estas son mis bandas favoritas. Como podrás ver, uno de mis géneros favoritos es el Folk Metal. Espero que disfrutes de mi selección personal.</p>
+            <h2 data-i18n="audio_h2">Mis Bandas Favoritas</h2>
+            <p data-i18n="audio_intro">Estas son mis bandas favoritas. Como podrás ver, uno de mis géneros favoritos es el Folk Metal. Espero que disfrutes de mi selección personal.</p>
 
-            <article>
+            <article id="epic">
                 <h3>EPIC: The Musical</h3>
                 <figure>
-                    <img src="multimedia/photo/epic.png" alt="Logo de EPIC: The Musical">
-                    <figcaption>EPIC: The Musical, un álbum conceptual sobre La Odisea.</figcaption>
+                    <img src="multimedia/photo/epic.png" alt="Logo de EPIC: The Musical" width="300" height="300" data-i18n-alt="audio_epic_alt">
+                    <figcaption data-i18n="audio_epic_fig">EPIC: The Musical, un álbum conceptual sobre La Odisea.</figcaption>
                 </figure>
-                <p>Aquí me he tomado una pequeña licencia. EPIC es el trabajo de fin de carrera de Jorge Rivera-Herranz. Es una reinterpretación de La Odisea en formato de albúm musical que esta divido en 9 sagas que recorren desde la caida de Troya hasta el regreso a Ítaca. Si tienes tiempo, mira alguna animación que puedes encontrar en línea hecha por sus seguidores de alguna de las canciones.</p>
-                <h4>Canción destacada: The Horse and the Infant</h4>
-                <p>La primera canción del musical, narra el asedio de troya y el propósito que los dioses le dan a Odiseo, asesinar al hijo de Héctor.</p>
+                <p data-i18n="audio_epic_p">Aquí me he tomado una pequeña licencia. EPIC es el trabajo de fin de carrera de Jorge Rivera-Herranz. Es una reinterpretación de La Odisea en formato de álbum musical que está dividido en 9 sagas que recorren desde la caída de Troya hasta el regreso a Ítaca. Si tienes tiempo, mira alguna animación que puedes encontrar en línea hecha por sus seguidores de alguna de las canciones.</p>
+                <h4 data-i18n="audio_epic_cancion_h4">Canción destacada: The Horse and the Infant</h4>
+                <p data-i18n="audio_epic_cancion_p">La primera canción del musical, narra el asedio de Troya y el propósito que los dioses le dan a Odiseo, asesinar al hijo de Héctor.</p>
                 <audio controls preload="metadata">
                     <source src="multimedia/audio/epic_song.mp3" type="audio/mpeg">
                     Tu navegador no soporta el elemento de audio.
                 </audio>
+                <details>
+                    <summary data-i18n="audio_desc_summary">Descripción</summary>
+                    <p data-i18n="audio_epic_desc_p">Fragmento de <cite>The Horse and the Infant</cite>, tema de apertura de <cite>EPIC: The Musical</cite>. Pieza narrativa sobre el asedio de Troya y la encrucijada que los dioses plantean a Odiseo respecto al hijo de Héctor.</p>
+                </details>
             </article>
             
-            <article>
+            <article id="saurom">
                 <h3>Saurom</h3>
                 <figure>
-                    <img src="multimedia/photo/saurom.png" alt="Logo de Saurom">
-                    <figcaption>Saurom, creadores del Juglar Metal.</figcaption>
+                    <img src="multimedia/photo/saurom.png" alt="Logo de Saurom" width="277" height="109" loading="lazy" data-i18n-alt="audio_saurom_alt">
+                    <figcaption data-i18n="audio_saurom_fig">Saurom, creadores del Juglar Metal.</figcaption>
                 </figure>
-                <p>Saurom es una banda de Folk Metal del sur de España que mezcla elementos de la música tradicional con un toque moderno. Ellos mismos llaman a su estilo "Juglar metal" y como podrás ver en las canciones con las que comenzaron, les encanta la obra de Tolkien.</p>
-                <h4>Canción destacada: El lazarillo de Tormes</h4>
-                <p>Esta fue la primera canción que escuché y me encanta cómo narran la historia.</p>
+                <p data-i18n="audio_saurom_p">Saurom es una banda de Folk Metal del sur de España que mezcla elementos de la música tradicional con un toque moderno. Ellos mismos llaman a su estilo "Juglar metal" y como podrás ver en las canciones con las que comenzaron, les encanta la obra de Tolkien.</p>
+                <h4 data-i18n="audio_saurom_cancion_h4">Canción destacada: El lazarillo de Tormes</h4>
+                <p data-i18n="audio_saurom_cancion_p">Esta fue la primera canción que escuché y me encanta cómo narran la historia.</p>
                 <audio controls preload="metadata">
                     <source src="multimedia/audio/saurom_song.mp3" type="audio/mpeg">
                     Tu navegador no soporta el elemento de audio.
                 </audio>
+                <details>
+                    <summary data-i18n="audio_desc_summary">Descripción</summary>
+                    <p data-i18n="audio_saurom_desc_p">Fragmento de <cite>El lazarillo de Tormes</cite>, de Saurom. Canción de Folk Metal ("Juglar metal") con instrumentación tradicional y guitarra eléctrica centrada en la narración de la obra picaresca.</p>
+                </details>
             </article>
 
-            <article>
+            <article id="hadadanza">
                 <h3>Hadadanza</h3>
                 <figure>
-                    <img src="multimedia/photo/hadadanza.png" alt="Logo de Hadadanza">
-                    <figcaption>Hadadanza, otra banda de Folk Metal impresionante.</figcaption>
+                    <img src="multimedia/photo/hadadanza.png" alt="Logo de Hadadanza" width="300" height="169" loading="lazy" data-i18n-alt="audio_hadadanza_alt">
+                    <figcaption data-i18n="audio_hadadanza_fig">Hadadanza, otra banda de Folk Metal impresionante.</figcaption>
                 </figure>
-                <p>Hadadanza es una banda de Folk Metal inspirada también en la narrativa de Tolkien. Ha colaborado con muchos otros grupos del panorama español en varios discos y álbumes. En concreto, el album de "El Circo de los muertos" posee una historia entrelazada entre las canciones que cuenta la historia de Mia, una niña que acaba rodeada por los particulares integrantes del circo. Incluso Luis Posada ha actuado como narrador en alguna de sus canciones.</p>                
-                <h4>Canción destacada: La contorsionista</h4>
-                <p>La canción de una de las integrantes del circo y su retorcido don. Es una de las canciones que más he escuchado durante los últimos años.</p>
+                <p data-i18n="audio_hadadanza_p">Hadadanza es una banda de Folk Metal inspirada también en la narrativa de Tolkien. Ha colaborado con muchos otros grupos del panorama español en varios discos y álbumes. En concreto, el álbum de "El Circo de los muertos" posee una historia entrelazada entre las canciones que cuenta la historia de Mia, una niña que acaba rodeada por los particulares integrantes del circo. Incluso Luis Posada ha actuado como narrador en alguna de sus canciones.</p>                
+                <h4 data-i18n="audio_hadadanza_cancion_h4">Canción destacada: La contorsionista</h4>
+                <p data-i18n="audio_hadadanza_cancion_p">La canción de una de las integrantes del circo y su retorcido don. Es una de las canciones que más he escuchado durante los últimos años.</p>
                 <audio controls preload="metadata">
                     <source src="multimedia/audio/hadadanza_song.mp3" type="audio/mpeg">
                     Tu navegador no soporta el elemento de audio.
                 </audio>
+                <details>
+                    <summary data-i18n="audio_desc_summary">Descripción</summary>
+                    <p data-i18n="audio_hadadanza_desc_p">Fragmento de <cite>La contorsionista</cite>, de Hadadanza. Tema de Folk Metal perteneciente al álbum conceptual <cite>El Circo de los muertos</cite>, sobre uno de los personajes del circo que rodea a Mia.</p>
+                </details>
             </article>
 
         </section>
     </main>
 
     <footer>
-        <p>Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
         <address>
-            Email de contacto: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </address>
     </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
 </body>
 </html>

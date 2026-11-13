@@ -5,97 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Videojuegos, Películas y Series - Mi rincón web</title>
     <meta name="description" content="Recopilación de mis videojuegos, películas y series favoritas.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-pagina="multi">
+    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
-        <h1>Mi rincón web</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="profile.html">Mi Perfil</a>
-            <a href="audio.html">Mi Música</a>
-            <a href="multimedia.html">Mis Videojuegos, Películas y Series</a>
-            <a href="books.html">Mis Libros</a>
+        <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
+                <li><a href="audio.html" data-i18n="nav_musica">Mi Música</a></li>
+                <li><a href="multimedia.html" aria-current="page" data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</a></li>
+                <li><a href="books.html" data-i18n="nav_libros">Mis Libros</a></li>
+            </ul>
         </nav>
+        <search>
+            <form action="buscar.html" method="get">
+                <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <button type="submit" data-i18n="buscar_boton">Buscar</button>
+            </form>
+        </search>
+        <form action="#" method="get" aria-label="Selector de idioma">
+            <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
+            <select id="selector-idioma" name="idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
     </header>
 
-    <main>
+    <main id="contenido-principal">
+        <nav aria-label="Migas de pan">
+            <p data-i18n="migas_estas_en">Estás en:</p>
+            <ol>
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li aria-current="page"><strong data-i18n="nav_multimedia">Mis Videojuegos, Películas y Series</strong></li>
+            </ol>
+        </nav>
+
         <section>
-            <h2>Mis Videojuegos Favoritos</h2>
-            <p>Una selección de los títulos a los que más horas he dedicado y que más me han marcado.</p>
+            <h2 data-i18n="multi_juegos_h2">Mis Videojuegos Favoritos</h2>
+            <p data-i18n="multi_juegos_intro">Una selección de los títulos a los que más horas he dedicado y que más me han marcado.</p>
             
-            <article>
-                <h3>The Legend of Zelda: Majora's Mask</h3>
+            <article id="majoras">
+                <h4 data-i18n="multi_majoras_h4">The Legend of Zelda: Majora's Mask</h4>
                 <figure>
-                    <img src="multimedia/photo/majoras.png" alt="Portada de Zelda Majora's Mask" width="600" height="300">
-                    <figcaption>Uno de los juegos más oscuros de la saga.</figcaption>
+                    <img src="multimedia/photo/majoras.jpg" alt="Portada de Zelda Majora's Mask" width="600" height="300" data-i18n-alt="multi_majoras_alt">
+                    <figcaption data-i18n="multi_majoras_fig">Uno de los juegos más oscuros de la saga.</figcaption>
                 </figure>
-                <p>La mecánica de los tres días y la atmósfera opresiva de Termina hacen de este juego una obra maestra. Pese a que lo jugué por primera vez en la 3DS, la versatilidad de los días y las misiones limitadas en el tiempo junto con las mecánicas de las máscaras lo hacen una combinación memorable.</p>
+                <p data-i18n="multi_majoras_p">La mecánica de los tres días y la atmósfera opresiva de Termina hacen de este juego una obra maestra. Pese a que lo jugué por primera vez en la 3DS, la versatilidad de los días y las misiones limitadas en el tiempo junto con las mecánicas de las máscaras lo hacen una combinación memorable.</p>
             </article>
 
-            <article>
-                <h3>Dark Souls III</h3>
-                <p>Primer juego de la saga Souls a la que jugué. Marcó en gran medida mi modo de afrontar los juegos similares y estableció un estándar para la dificultad y el diseño de niveles.</p>
+            <article id="dark-souls">
+                <h4 data-i18n="multi_ds3_h4">Dark Souls III</h4>
+                <p data-i18n="multi_ds3_p">Primer juego de la saga Souls a la que jugué. Marcó en gran medida mi modo de afrontar los juegos similares y estableció un estándar para la dificultad y el diseño de niveles.</p>
                 <figure>
-                    <video controls preload="metadata">
+                    <video controls preload="metadata" poster="multimedia/photo/ds3_poster.jpg">
                         <source src="multimedia/video/ds3_clip.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de vídeo.
                     </video>
-                    <figcaption>Gameplay de Dark Souls III.</figcaption>
+                    <figcaption data-i18n="multi_ds3_fig">Gameplay de Dark Souls III.</figcaption>
                 </figure>
+                <details>
+                    <summary data-i18n="multi_video_desc_summary">Descripción</summary>
+                    <p data-i18n="multi_ds3_desc">Clip breve de partida real (<em>gameplay</em>) de <cite>Dark Souls III</cite> que muestra su sistema de combate y ambientación.</p>
+                </details>
             </article>
 
-            <article>
-                <h3>For Honor</h3>
+            <article id="for-honor">
+                <h4 data-i18n="multi_forhonor_h4">For Honor</h4>
                 <figure>
-                    <img src="multimedia/photo/forhonor.jpg" alt="Pantalla de For Honor" width="600" height="300">
-                    <figcaption>Caballeros, Vikingos y Samuráis en combate realista.</figcaption>
+                    <img src="multimedia/photo/forhonor.jpg" alt="Pantalla de For Honor" width="600" height="337" loading="lazy" data-i18n-alt="multi_forhonor_alt">
+                    <figcaption data-i18n="multi_forhonor_fig">Caballeros, Vikingos y Samuráis en combate realista.</figcaption>
                 </figure>
-                <p>Pese a ser un juego multijugador bastante antiguo, el combate de esta entrega no ha sido igualado por ningún otro juego de pelea. La comunidad con sus más y sus menos permanece unida y activa.</p>
+                <p data-i18n="multi_forhonor_p">Pese a ser un juego multijugador bastante antiguo, el combate de esta entrega no ha sido igualado por ningún otro juego de pelea. La comunidad con sus más y sus menos permanece unida y activa.</p>
             </article>
         </section>
 
         <section>
-            <h2>Mis Películas y Series</h2>
-            <p>Pese a que no soy un gran fanático de las películas y series, siempre hay alguna obra que por trama o mera nostalgia me engancha y hace volver constantemente.</p>
+            <h3 data-i18n="multi_cine_h3">Mis Películas y Series</h3>
+            <p data-i18n="multi_cine_intro">Pese a que no soy un gran fanático de las películas y series, siempre hay alguna obra que por trama o mera nostalgia me engancha y hace volver constantemente.</p>
             
-            <article>
-                <h3>Piratas del Caribe</h3>
-                <p>Una saga de aventuras fantástica con uno de los personajes más icónicos del cine: el Capitán Jack Sparrow. La banda sonora de Hans Zimmer es sencillamente legendaria.</p>
+            <article id="piratas-caribe">
+                <h4 data-i18n="multi_piratas_h4">Piratas del Caribe</h4>
+                <p data-i18n="multi_piratas_p">Una saga de aventuras fantástica con uno de los personajes más icónicos del cine: el Capitán Jack Sparrow. La banda sonora de Hans Zimmer es sencillamente legendaria.</p>
                 <figure>
-                    <video controls preload="metadata">
+                    <video controls preload="metadata" poster="multimedia/photo/pc_poster.jpg">
                         <source src="multimedia/video/pc_clip.mp4" type="video/mp4">
                         Tu navegador no soporta el elemento de vídeo.
                     </video>
-                    <figcaption>La icónica entrada del Captián Jack Sparrow.</figcaption>
+                    <figcaption data-i18n="multi_piratas_fig">La icónica entrada del Capitán Jack Sparrow.</figcaption>
                 </figure>
+                <details>
+                    <summary data-i18n="multi_video_desc_summary">Descripción</summary>
+                    <p data-i18n="multi_piratas_desc">Escena de <cite>Piratas del Caribe</cite> con la icónica llegada en barco del Capitán Jack Sparrow acompañada por la banda sonora de Hans Zimmer.</p>
+                </details>
             </article>
 
-            <article>
-                <h3>Castle</h3>
+            <article id="castle">
+                <h4 data-i18n="multi_castle_h4">Castle</h4>
                 <figure>
-                    <img src="multimedia/photo/castle.jpg" alt="Logo de la serie Castle" width="300" height="300">
-                    <figcaption>Richard Castle y Kate Beckett.</figcaption>
+                    <img src="multimedia/photo/castle.jpg" alt="Logo de la serie Castle" width="300" height="401" loading="lazy" data-i18n-alt="multi_castle_alt">
+                    <figcaption data-i18n="multi_castle_fig">Richard Castle y Kate Beckett.</figcaption>
                 </figure>
-                <p>La dinámica entre el escritor de novelas de misterio y la inspectora de policía es genial. Fue la primera serie policiaca que ví y se ha convertido en un referente del género sin importar los años que pasen. Combina perfectamente el humor con la resolución de casos policiacos, manteniéndote enganchado en cada episodio.</p>
+                <p data-i18n="multi_castle_p">La dinámica entre el escritor de novelas de misterio y la inspectora de policía es genial. Fue la primera serie policíaca que vi y se ha convertido en un referente del género sin importar los años que pasen. Combina perfectamente el humor con la resolución de casos policíacos, manteniéndote enganchado en cada episodio.</p>
             </article>
 
-            <article>
-                <h3>Dr. House</h3>
+            <article id="dr-house">
+                <h4 data-i18n="multi_house_h4">Dr. House</h4>
                 <figure>
-                    <img src="multimedia/photo/house.jpg" alt="Gregory House" width="300" height="300">
-                    <figcaption>El Dr House, el médico que no confía en sus pacientes ni sus compañeros.</figcaption>
+                    <img src="multimedia/photo/house.jpg" alt="Gregory House" width="300" height="450" loading="lazy" data-i18n-alt="multi_house_alt">
+                    <figcaption data-i18n="multi_house_fig">El Dr. House, el médico que no confía en sus pacientes ni sus compañeros.</figcaption>
                 </figure>
-                <p>Gregory House es un personaje fascinante. La forma en la que la serie plantea cada enfermedad como si fuera un rompecabezas lógico o un caso policial la convierte en una de mis series favoritas. He visto gran parte de los episodios múltiples veces pero la intriga junto con el humor irreverente de House lo hacen la mejor serie médica que he visto jamás.</p>
+                <p data-i18n="multi_house_p">Gregory House es un personaje fascinante. La forma en la que la serie plantea cada enfermedad como si fuera un rompecabezas lógico o un caso policial la convierte en una de mis series favoritas. He visto gran parte de los episodios múltiples veces pero la intriga junto con el humor irreverente de House lo hacen la mejor serie médica que he visto jamás.</p>
             </article>
         </section>
     </main>
 
     <footer>
-        <p>Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_asignatura">Sitio web creado para la asignatura de Estándares y Computación Web.</p>
+        <p data-i18n="footer_actualizacion">Última actualización: <time datetime="2026-11-12">12 de noviembre de 2026</time></p>
+        <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
         <address>
-            Email de contacto: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a>
+            <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </address>
     </footer>
+    <script src="translations.js" defer></script>
+    <script src="i18n.js" defer></script>
 </body>
 </html>
