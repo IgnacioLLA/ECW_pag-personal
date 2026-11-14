@@ -33,8 +33,8 @@
             url: 'profile.html#experiencia',
             navKey: 'nav_perfil',
             tituloKey: 'profile_exp_h3',
-            claves: ['profile_exp_h3', 'profile_exp_p'],
-            keywords: ['TRAGSATEC', 'prácticas', '2 meses', 'full-stack', 'Spring Boot', 'React', 'TFG', 'TFE', 'MatchTFE', 'Trabajo de Fin de Grado', 'GitHub']
+            claves: ['profile_exp_h3', 'profile_exp_intro', 'profile_item_master_h4', 'profile_item_master_fecha', 'profile_item_tragsa_h4', 'profile_item_tragsa_fecha', 'profile_item_tragsa_desc', 'profile_item_tfg_h4', 'profile_item_tfg_fecha', 'profile_item_tfg_desc', 'profile_item_grado_h4', 'profile_item_grado_fecha', 'profile_item_grado_desc'],
+            keywords: ['TRAGSATEC', 'prácticas', '2 meses', 'full-stack', 'Spring Boot', 'React', 'TFG', 'TFE', 'MatchTFE', 'Trabajo de Fin de Grado', 'GitHub', 'Máster', 'Ingeniería Web', 'Grado', 'Software', 'Formación', 'Experiencia']
         },
         {
             id: 'profile_ref',

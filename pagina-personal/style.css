@@ -63,12 +63,13 @@ header {
 }
 
 header form[aria-label="Selector de idioma"] {
-    display: flex;
-    justify-content: flex-end;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     gap: 0.35rem;
-    margin: 0 0 0.5rem 0;
-    width: 100%;
+    margin: 0.625rem 0 0;
+    width: auto;
 }
 
 header form[aria-label="Selector de idioma"] label {
@@ -171,9 +172,10 @@ header nav a[aria-current="page"] {
 }
 
 header search {
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 header search form {
@@ -188,29 +190,32 @@ header search form {
 }
 
 header search label {
-    font-size: 0.9rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 0;
-    display: inline;
+    margin-bottom: 0.25rem;
 }
 
 header search input[type="search"] {
-    flex: 1 1 9rem;
+    flex: 1 1 10rem;
     min-width: 0;
     max-width: 18rem;
-    padding: 0.35rem 0.65rem;
+    padding: 0.4rem 0.65rem;
     font-size: 0.95rem;
     background-color: #ffffff;
     color: #2c3e50;
     border: 0.125rem solid #ffffff;
     border-radius: 0.25rem;
     box-sizing: border-box;
-    min-height: 2.25rem;
+    min-height: 2.375rem;
 }
 
 header search button[type="submit"] {
-    padding: 0.35rem 1rem;
+    flex: 0 0 auto;
+    padding: 0.4rem 1.125rem;
     font-size: 0.95rem;
     font-weight: 700;
     background-color: #1d6fa5;
@@ -218,7 +223,7 @@ header search button[type="submit"] {
     border: 0.125rem solid #ffffff;
     border-radius: 0.25rem;
     cursor: pointer;
-    min-height: 2.25rem;
+    min-height: 2.375rem;
     width: auto;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -371,16 +376,24 @@ section > ol li {
     margin-bottom: 0;
 }
 
-section > ol h3 {
+section > ol h3,
+section > ol h4 {
     margin-top: 0;
     margin-bottom: 0.35rem;
     font-size: 1.125rem;
+    color: #2c3e50;
 }
 
 section > ol p {
     margin-bottom: 0.35rem;
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+section > ol li p:first-of-type {
+    color: #475569;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
 }
 
 section > ol p:last-child {
@@ -617,6 +630,11 @@ footer a:focus-visible {
     article {
         padding: 0.75rem;
     }
+
+    section#retroalimentacion address {
+        padding: 0.875rem 0.75rem;
+        margin: 1rem 0;
+    }
 }
 
 /* Media query para tablets y pantallas medianas (>= 36rem / 576px) */
@@ -653,6 +671,13 @@ footer a:focus-visible {
 
     header search {
         margin-top: 1rem;
+    }
+
+    header search label {
+        width: auto;
+        display: inline;
+        text-align: left;
+        margin-bottom: 0;
     }
 
     header form[aria-label="Selector de idioma"] {
