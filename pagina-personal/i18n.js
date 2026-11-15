@@ -1,14 +1,8 @@
-// i18n.js - Sistema nativo y estándar de internacionalización con translations.json
 (function () {
     'use strict';
 
     let traducciones = null;
 
-    /**
-     * Carga el diccionario de traducciones desde translations.json.
-     * Si se ejecuta localmente bajo protocolo file:// (donde fetch falla por CORS),
-     * utiliza automáticamente el objeto fallback TRADUCCIONES_DATOS si está disponible.
-     */
     async function cargarTraducciones() {
         if (traducciones) return traducciones;
         try {
@@ -26,20 +20,14 @@
         }
     }
 
-    /**
-     * Aplica el idioma especificado ('es' o 'en') actualizando el DOM de forma semántica y nativa.
-     * @param {string} lang 
-     */
     async function aplicarIdioma(lang) {
         const datos = await cargarTraducciones();
         if (!datos || !datos[lang]) return;
 
         const textos = datos[lang];
 
-        // 1. Estándar W3C: Actualizar el atributo lang del elemento raíz <html>
         document.documentElement.lang = lang;
 
-        // 2. Título del documento y meta descripción según la página actual
         const pagina = document.body.getAttribute('data-pagina');
         if (pagina && textos[pagina + '_title']) {
             document.title = textos[pagina + '_title'];
@@ -49,7 +37,6 @@
             metaDesc.setAttribute('content', textos[pagina + '_meta_desc']);
         }
 
-        // 3. Traducir contenido de elementos con atributo nativo data-i18n
         document.querySelectorAll('[data-i18n]').forEach((el) => {
             const clave = el.getAttribute('data-i18n');
             if (textos[clave] !== undefined) {
@@ -62,7 +49,6 @@
             }
         });
 
-        // 4. Traducir atributos de imágenes (alt)
         document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
             const clave = el.getAttribute('data-i18n-alt');
             if (textos[clave] !== undefined) {
@@ -70,7 +56,6 @@
             }
         });
 
-        // 4b. Traducir atributos placeholder
         document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
             const clave = el.getAttribute('data-i18n-placeholder');
             if (textos[clave] !== undefined) {
@@ -78,36 +63,49 @@
             }
         });
 
-        // 5. Sincronizar el valor del selector nativo
+        document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+            const clave = el.getAttribute('data-i18n-aria');
+            if (textos[clave] !== undefined) {
+                el.setAttribute('aria-label', textos[clave]);
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+            const clave = el.getAttribute('data-i18n-title');
+            if (textos[clave] !== undefined) {
+                el.setAttribute('title', textos[clave]);
+            }
+        });
+
         const selector = document.getElementById('selector-idioma');
         if (selector && selector.value !== lang) {
             selector.value = lang;
         }
 
-        // 6. Guardar la preferencia en localStorage para persistencia entre páginas
         try {
             localStorage.setItem('idioma_preferido', lang);
-        } catch (e) {
-            // Manejo silencioso en caso de navegación privada restrictiva
-        }
+        } catch (e) {}
 
-        // 7. Notificar a otros módulos (como el buscador) del cambio de idioma
         try {
             window.dispatchEvent(new CustomEvent('idiomaCambiado', { detail: { lang: lang } }));
         } catch (e) {}
     }
 
-    // Inicialización al cargar el DOM
     document.addEventListener('DOMContentLoaded', () => {
         const selector = document.getElementById('selector-idioma');
-        const formIdioma = document.querySelector('header form[aria-label="Selector de idioma"]');
+        const formIdioma = document.querySelector('header form[data-i18n-aria="aria_selector_idioma"]') ||
+                           document.querySelector('header form[aria-label="Selector de idioma"]') ||
+                           (selector ? selector.closest('form') : null);
 
-        // Evitar recarga accidental si se pulsa Enter en el formulario del selector
         if (formIdioma) {
-            formIdioma.addEventListener('submit', (e) => e.preventDefault());
+            formIdioma.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (selector) {
+                    aplicarIdioma(selector.value);
+                }
+            });
         }
 
-        // Determinar idioma inicial: preferencia guardada > preferencia del navegador > español
         let idiomaInicial = 'es';
         try {
             const guardado = localStorage.getItem('idioma_preferido');
@@ -127,7 +125,6 @@
             });
         }
 
-        // Si el idioma inicial es inglés, aplicarlo
         if (idiomaInicial === 'en') {
             aplicarIdioma('en');
         }

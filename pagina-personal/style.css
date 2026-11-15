@@ -62,6 +62,7 @@ header {
     text-align: center;
 }
 
+header form[data-i18n-aria="aria_selector_idioma"],
 header form[aria-label="Selector de idioma"] {
     display: inline-flex;
     flex-direction: row;
@@ -72,6 +73,7 @@ header form[aria-label="Selector de idioma"] {
     width: auto;
 }
 
+header form[data-i18n-aria="aria_selector_idioma"] label,
 header form[aria-label="Selector de idioma"] label {
     font-size: 0.85rem;
     font-weight: 600;
@@ -80,6 +82,7 @@ header form[aria-label="Selector de idioma"] label {
     display: inline;
 }
 
+header form[data-i18n-aria="aria_selector_idioma"] select,
 header form[aria-label="Selector de idioma"] select {
     background-color: #ffffff;
     color: #2c3e50;
@@ -91,6 +94,31 @@ header form[aria-label="Selector de idioma"] select {
     cursor: pointer;
     min-height: 2rem;
     width: auto;
+}
+
+header form[data-i18n-aria="aria_selector_idioma"] button,
+header form[aria-label="Selector de idioma"] button {
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border: 0.125rem solid #ffffff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    min-height: 2rem;
+    width: auto;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header form[data-i18n-aria="aria_selector_idioma"] button:hover,
+header form[data-i18n-aria="aria_selector_idioma"] button:focus-visible,
+header form[aria-label="Selector de idioma"] button:hover,
+header form[aria-label="Selector de idioma"] button:focus-visible {
+    background-color: #2c3e50;
+    color: #ffffff;
+    outline: 0.125rem solid #ffffff;
+    outline-offset: 0.125rem;
 }
 
 header h1 {
@@ -680,6 +708,7 @@ footer a:focus-visible {
         margin-bottom: 0;
     }
 
+    header form[data-i18n-aria="aria_selector_idioma"],
     header form[aria-label="Selector de idioma"] {
         position: absolute;
         top: 1.25rem;
@@ -688,11 +717,20 @@ footer a:focus-visible {
         width: auto;
     }
 
+    header form[data-i18n-aria="aria_selector_idioma"] label,
     header form[aria-label="Selector de idioma"] label {
         font-size: 0.95rem;
     }
 
+    header form[data-i18n-aria="aria_selector_idioma"] select,
     header form[aria-label="Selector de idioma"] select {
+        font-size: 0.95rem;
+        padding: 0.35rem 0.625rem;
+        min-height: 2.25rem;
+    }
+
+    header form[data-i18n-aria="aria_selector_idioma"] button,
+    header form[aria-label="Selector de idioma"] button {
         font-size: 0.95rem;
         padding: 0.35rem 0.625rem;
         min-height: 2.25rem;

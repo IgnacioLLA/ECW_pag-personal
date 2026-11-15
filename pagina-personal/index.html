@@ -19,7 +19,7 @@
     <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
         <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
-        <nav aria-label="Navegación principal">
+        <nav aria-label="Navegación principal" data-i18n-aria="aria_nav_principal">
             <ul>
                 <li><a href="index.html" aria-current="page" data-i18n="nav_inicio">Inicio</a></li>
                 <li><a href="profile.html" data-i18n="nav_perfil">Mi Perfil</a></li>
@@ -31,16 +31,17 @@
         <search>
             <form action="buscar.html" method="get">
                 <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
-                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." required data-i18n-placeholder="buscar_placeholder">
+                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
                 <button type="submit" data-i18n="buscar_boton">Buscar</button>
             </form>
         </search>
-        <form action="#" method="get" aria-label="Selector de idioma">
+        <form action="#" method="get" aria-label="Selector de idioma" data-i18n-aria="aria_selector_idioma">
             <label for="selector-idioma" data-i18n="label_idioma">Idioma:</label>
             <select id="selector-idioma" name="idioma">
                 <option value="es">Español</option>
                 <option value="en">English</option>
             </select>
+            <button type="submit" data-i18n="boton_idioma">Aplicar</button>
         </form>
     </header>
 
@@ -61,7 +62,7 @@
         <p><a href="ayuda.html" data-i18n="footer_ayuda">Ayuda y Guía del Sitio</a></p>
         <address>
             <p data-i18n="footer_contacto">Ubicación: Oviedo - Email: <a href="mailto:UO294914@uniovi.es">UO294914@uniovi.es</a></p>
-            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+            <p data-i18n="footer_redes">Redes: <a href="https://github.com/IgnacioLLA">GitHub</a></p>
         </address>
     </footer>
     <script src="translations.js" defer></script>

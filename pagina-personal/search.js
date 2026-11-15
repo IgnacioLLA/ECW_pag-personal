@@ -1,8 +1,6 @@
-// search.js - Motor de búsqueda contextual sobre los textos reales del sitio (translations.json / translations.js)
 (function () {
     'use strict';
 
-    // Catálogo de entidades de contenido del sitio mapeadas a sus páginas, anclas y claves de traducción
     const ENTIDADES = [
         {
             id: 'index_sobre_mi',
@@ -169,9 +167,6 @@
         }
     ];
 
-    /**
-     * Normaliza una cadena eliminando diacríticos y pasando a minúsculas
-     */
     function normalizar(str) {
         if (!str) return '';
         return str
@@ -180,17 +175,11 @@
             .replace(/[\u0300-\u036f]/g, '');
     }
 
-    /**
-     * Limpia etiquetas HTML para procesar texto plano
-     */
     function limpiarHTML(str) {
         if (!str) return '';
         return str.replace(/<[^>]+>/g, '').trim();
     }
 
-    /**
-     * Escapa caracteres HTML para inserción segura en el DOM
-     */
     function escapeHTML(str) {
         if (!str) return '';
         return str
@@ -200,9 +189,6 @@
             .replace(/"/g, '&quot;');
     }
 
-    /**
-     * Construye una expresión regular insensible a mayúsculas y acentos a partir de la frase y palabras clave
-     */
     function crearRegexTerminos(query, terminos) {
         const mapa = {
             'a': '[aáàäâ]', 'á': '[aáàäâ]', 'à': '[aáàäâ]',
@@ -240,9 +226,6 @@
         return new RegExp('(' + patrones.join('|') + ')', 'gi');
     }
 
-    /**
-     * Extrae el fragmento exacto donde se encuentra la mención y resalta las coincidencias con <mark>
-     */
     function extraerSnippetConResaltado(textos, query, terminos, maxLen = 175) {
         const regex = crearRegexTerminos(query, terminos);
 
@@ -252,7 +235,6 @@
             return escapeHTML(plain);
         }
 
-        // Priorizar textos con mayor desarrollo narrativo (párrafos frente a pies de foto breves)
         const textosOrdenados = [...textos].sort((a, b) => {
             const aLargo = a.length > 60;
             const bLargo = b.length > 60;
@@ -287,7 +269,6 @@
             let inicio = Math.max(0, matchIdx - leadLen);
             let fin = Math.min(textoElegido.length, matchIdx + matchLen + (maxLen - leadLen - matchLen));
 
-            // Ajustar cortes para no truncar palabras a la mitad
             if (inicio > 0) {
                 const nextSpace = textoElegido.indexOf(' ', inicio);
                 if (nextSpace !== -1 && nextSpace < matchIdx) {
@@ -315,9 +296,6 @@
         return snippetEscapado.replace(regex, '<mark>$1</mark>');
     }
 
-    /**
-     * Obtiene el idioma activo comprobando localStorage, selector nativo y etiqueta <html>
-     */
     function obtenerIdiomaActivo() {
         try {
             const guardado = localStorage.getItem('idioma_preferido');
@@ -332,10 +310,7 @@
         return document.documentElement.lang === 'en' ? 'en' : 'es';
     }
 
-    /**
-     * Carga el diccionario unificado de textos reales (translations.json / translations.js)
-     */
-    async function cargarTraducciones() {
+        async function cargarTraducciones() {
         if (typeof window !== 'undefined' && window.TRADUCCIONES_DATOS) {
             return window.TRADUCCIONES_DATOS;
         }
@@ -349,10 +324,7 @@
         return null;
     }
 
-    /**
-     * Ejecuta la búsqueda basada en claves y textos reales con fragmento contextual y resaltado
-     */
-    async function ejecutarBusqueda() {
+        async function ejecutarBusqueda() {
         const resumenEl = document.getElementById('resumen-busqueda');
         const listaEl = document.getElementById('lista-resultados');
         const inputHeader = document.getElementById('campo-busqueda');
@@ -381,7 +353,6 @@
         const dictEs = datos.es;
         const dictEn = datos.en || datos.es;
 
-        // Caso: Sin término de búsqueda
         if (!query) {
             const msgSinTermino = dictActivo.buscar_sin_termino ||
                 (lang === 'en' ? 'Please enter a search term in the form above to search the site.' : 'Introduce un término en el formulario superior para buscar contenidos en el sitio.');
@@ -394,7 +365,6 @@
         const resultados = [];
 
         ENTIDADES.forEach((ent) => {
-            // Textos reales en español e inglés para búsqueda bilingüe instantánea
             const textosEs = ent.claves.map((k) => limpiarHTML(dictEs[k] || '')).filter(Boolean);
             const textosEn = ent.claves.map((k) => limpiarHTML(dictEn[k] || '')).filter(Boolean);
             const extraKeywords = (ent.keywords || []).join(' ');
@@ -406,19 +376,16 @@
                 (ent.tituloDirecto || '')
             );
 
-            // Comprobar que todas las palabras de la consulta están en el corpus
             const coincide = palabras.every((p) => corpus.includes(p));
 
             if (coincide) {
                 const titulo = dictActivo[ent.tituloKey] || ent.tituloDirecto || dictActivo[ent.navKey] || '';
                 const seccion = dictActivo[ent.navKey] || '';
 
-                // Extraer textos en el idioma activo
                 const textosActivos = ent.claves
                     .map((k) => limpiarHTML(dictActivo[k] || ''))
                     .filter(Boolean);
 
-                // Obtener fragmento contextual recortado y resaltado con <mark>
                 const snippetHtml = extraerSnippetConResaltado(textosActivos, query, palabras);
 
                 resultados.push({
@@ -430,7 +397,6 @@
             }
         });
 
-        // Caso: Sin resultados
         if (resultados.length === 0) {
             const plantillaSin = dictActivo.buscar_sin_resultados ||
                 (lang === 'en' ? 'No results found for "{q}". Try different words.' : 'No se encontraron resultados para "{q}". Prueba con otros términos.');
@@ -439,7 +405,6 @@
             return;
         }
 
-        // Caso: Con resultados
         const plantillaCon = dictActivo.buscar_con_resultados ||
             (lang === 'en' ? 'Found {n} result(s) for "{q}":' : 'Se han encontrado {n} resultado(s) para "{q}":');
         resumenEl.textContent = plantillaCon.replace('{n}', resultados.length).replace('{q}', query);
@@ -456,7 +421,6 @@
             const a = document.createElement('a');
             a.href = item.url;
 
-            // Resaltar en el título si contiene el término buscado
             if (regexTerminos) {
                 regexTerminos.lastIndex = 0;
                 a.innerHTML = escapeHTML(item.titulo).replace(regexTerminos, '<mark>$1</mark>');
@@ -478,11 +442,9 @@
         });
     }
 
-    // Inicializar búsqueda y registrar escuchadores reactivos
     document.addEventListener('DOMContentLoaded', () => {
         ejecutarBusqueda();
 
-        // Reaccionar al cambio de idioma del selector de cabecera
         const selectorIdioma = document.getElementById('selector-idioma');
         if (selectorIdioma) {
             selectorIdioma.addEventListener('change', () => {
@@ -490,7 +452,6 @@
             });
         }
 
-        // Reaccionar al evento personalizado de sincronización de i18n.js
         window.addEventListener('idiomaCambiado', () => {
             ejecutarBusqueda();
         });
