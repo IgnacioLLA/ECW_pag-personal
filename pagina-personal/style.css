@@ -258,7 +258,7 @@ main {
     flex: 1;
 }
 
-nav[aria-label="Migas de pan"] {
+nav[data-i18n-aria="aria_migas_pan"] {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -268,12 +268,12 @@ nav[aria-label="Migas de pan"] {
     color: #2b2d42;
 }
 
-nav[aria-label="Migas de pan"] p {
+nav[data-i18n-aria="aria_migas_pan"] p {
     margin: 0;
     font-weight: 600;
 }
 
-nav[aria-label="Migas de pan"] ol {
+nav[data-i18n-aria="aria_migas_pan"] ol {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -283,19 +283,19 @@ nav[aria-label="Migas de pan"] ol {
     gap: 0.4rem;
 }
 
-nav[aria-label="Migas de pan"] li {
+nav[data-i18n-aria="aria_migas_pan"] li {
     display: inline-flex;
     align-items: center;
 }
 
-nav[aria-label="Migas de pan"] li + li::before {
+nav[data-i18n-aria="aria_migas_pan"] li + li::before {
     content: ">";
     margin-right: 0.4rem;
     color: #555555;
     font-weight: 400;
 }
 
-nav[aria-label="Migas de pan"] a {
+nav[data-i18n-aria="aria_migas_pan"] a {
     font-weight: 600;
 }
 

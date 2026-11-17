@@ -120,9 +120,6 @@
 
         if (selector) {
             selector.value = idiomaInicial;
-            selector.addEventListener('change', (e) => {
-                aplicarIdioma(e.target.value);
-            });
         }
 
         if (idiomaInicial === 'en') {

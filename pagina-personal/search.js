@@ -625,19 +625,11 @@
         });
     }
 
-    // Búsqueda inicial al cargar la página y repetición al cambiar de idioma
+    // Búsqueda inicial al cargar la página y repetición al aplicar otro idioma
     document.addEventListener('DOMContentLoaded', () => {
         ejecutarBusqueda();
 
-        const selectorIdioma = document.getElementById('selector-idioma');
-        if (selectorIdioma) {
-            selectorIdioma.addEventListener('change', () => {
-                // Pequeño retardo para que i18n.js guarde antes el idioma elegido
-                setTimeout(ejecutarBusqueda, 30);
-            });
-        }
-
-        // Evento que lanza i18n.js al aplicar un idioma
+        // Evento que lanza i18n.js al aplicar un idioma con el botón «Aplicar»
         window.addEventListener('idiomaCambiado', () => {
             ejecutarBusqueda();
         });
