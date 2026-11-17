@@ -16,7 +16,8 @@
     /**
      * Índice del buscador. Cada entidad es un apartado del sitio al que puede llevar un resultado:
      *  - id: identificador interno de la entidad (no se usa en el HTML).
-     *  - url: página y ancla existente a la que enlaza el resultado.
+     *  - url: página del apartado. El enlace se completa con un fragmento de texto (#:~:text=)
+ *    con su título, para que el navegador baje hasta él y lo resalte sin necesitar atributos id.
      *  - navKey: clave del texto de la sección del menú a la que pertenece («Sección: ...»).
      *  - tituloKey: clave del título principal del apartado, que se usa como título del resultado.
      *  - tituloDirecto: título fijo para apartados cuyo nombre no está en el diccionario (opcional).
@@ -26,7 +27,7 @@
     const ENTIDADES = [
         {
             id: 'index_sobre_mi',
-            url: 'index.html#sobre-mi',
+            url: 'index.html',
             navKey: 'nav_inicio',
             tituloKey: 'index_sobre_mi_h3',
             claves: ['index_info_personal_h2', 'index_sobre_mi_h3', 'index_sobre_mi_p1', 'index_sobre_mi_p2'],
@@ -34,7 +35,7 @@
         },
         {
             id: 'profile_quien_soy',
-            url: 'profile.html#quien-soy',
+            url: 'profile.html',
             navKey: 'nav_perfil',
             tituloKey: 'profile_quien_soy_h3',
             claves: ['profile_foto_alt', 'profile_foto_cap', 'profile_quien_soy_h3', 'profile_quien_soy_p'],
@@ -42,7 +43,7 @@
         },
         {
             id: 'profile_intereses',
-            url: 'profile.html#intereses',
+            url: 'profile.html',
             navKey: 'nav_perfil',
             tituloKey: 'profile_intereses_h3',
             claves: ['profile_intereses_h3', 'profile_intereses_p'],
@@ -50,7 +51,7 @@
         },
         {
             id: 'profile_exp',
-            url: 'profile.html#experiencia',
+            url: 'profile.html',
             navKey: 'nav_perfil',
             tituloKey: 'profile_exp_h3',
             claves: ['profile_exp_h3', 'profile_exp_intro', 'profile_item_master_h4', 'profile_item_master_fecha', 'profile_item_tragsa_h4', 'profile_item_tragsa_fecha', 'profile_item_tragsa_desc', 'profile_item_tfg_h4', 'profile_item_tfg_fecha', 'profile_item_tfg_desc', 'profile_item_grado_h4', 'profile_item_grado_fecha', 'profile_item_grado_desc'],
@@ -58,7 +59,7 @@
         },
         {
             id: 'profile_ref',
-            url: 'profile.html#referencias-avales',
+            url: 'profile.html',
             navKey: 'nav_perfil',
             tituloKey: 'profile_ref_h3',
             claves: ['profile_ref_h3', 'profile_ref_p', 'profile_tutor1_rel', 'profile_tutor2_rel'],
@@ -66,7 +67,7 @@
         },
         {
             id: 'audio_epic',
-            url: 'audio.html#epic',
+            url: 'audio.html',
             navKey: 'nav_musica',
             tituloKey: 'audio_epic_cancion_h4',
             tituloDirecto: 'EPIC: The Musical',
@@ -75,7 +76,7 @@
         },
         {
             id: 'audio_saurom',
-            url: 'audio.html#saurom',
+            url: 'audio.html',
             navKey: 'nav_musica',
             tituloKey: 'audio_saurom_cancion_h4',
             tituloDirecto: 'Saurom',
@@ -84,7 +85,7 @@
         },
         {
             id: 'audio_hadadanza',
-            url: 'audio.html#hadadanza',
+            url: 'audio.html',
             navKey: 'nav_musica',
             tituloKey: 'audio_hadadanza_cancion_h4',
             tituloDirecto: 'Hadadanza',
@@ -93,7 +94,7 @@
         },
         {
             id: 'multi_majoras',
-            url: 'multimedia.html#majoras',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_majoras_h4',
             claves: ['multi_majoras_fig', 'multi_majoras_p', 'multi_majoras_h4', 'multi_majoras_alt'],
@@ -101,7 +102,7 @@
         },
         {
             id: 'multi_ds3',
-            url: 'multimedia.html#dark-souls',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_ds3_h4',
             claves: ['multi_ds3_p', 'multi_ds3_fig', 'multi_ds3_desc', 'multi_ds3_h4'],
@@ -109,7 +110,7 @@
         },
         {
             id: 'multi_forhonor',
-            url: 'multimedia.html#for-honor',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_forhonor_h4',
             claves: ['multi_forhonor_fig', 'multi_forhonor_p', 'multi_forhonor_h4', 'multi_forhonor_alt'],
@@ -117,7 +118,7 @@
         },
         {
             id: 'multi_piratas',
-            url: 'multimedia.html#piratas-caribe',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_piratas_h4',
             claves: ['multi_piratas_p', 'multi_piratas_fig', 'multi_piratas_desc', 'multi_piratas_h4'],
@@ -125,7 +126,7 @@
         },
         {
             id: 'multi_castle',
-            url: 'multimedia.html#castle',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_castle_h4',
             claves: ['multi_castle_fig', 'multi_castle_p', 'multi_castle_h4', 'multi_castle_alt'],
@@ -133,7 +134,7 @@
         },
         {
             id: 'multi_house',
-            url: 'multimedia.html#dr-house',
+            url: 'multimedia.html',
             navKey: 'nav_multimedia',
             tituloKey: 'multi_house_h4',
             claves: ['multi_house_fig', 'multi_house_p', 'multi_house_h4', 'multi_house_alt'],
@@ -141,7 +142,7 @@
         },
         {
             id: 'libros_jura',
-            url: 'books.html#juramentada',
+            url: 'books.html',
             navKey: 'nav_libros',
             tituloKey: 'libros_jura_h3',
             claves: ['libros_jura_fig', 'libros_jura_p1', 'libros_sanderson_fig', 'libros_sanderson_p', 'libros_jura_h3', 'libros_jura_alt', 'libros_sanderson_alt'],
@@ -149,7 +150,7 @@
         },
         {
             id: 'libros_viento',
-            url: 'books.html#nombre-viento',
+            url: 'books.html',
             navKey: 'nav_libros',
             tituloKey: 'libros_viento_h3',
             claves: ['libros_viento_fig', 'libros_viento_p1', 'libros_rothfuss_fig', 'libros_rothfuss_p', 'libros_viento_p2', 'libros_viento_h3', 'libros_viento_alt', 'libros_rothfuss_alt'],
@@ -157,7 +158,7 @@
         },
         {
             id: 'libros_espada',
-            url: 'books.html#espada-destino',
+            url: 'books.html',
             navKey: 'nav_libros',
             tituloKey: 'libros_espada_h3',
             claves: ['libros_espada_fig', 'libros_espada_p1', 'libros_sapkowski_fig', 'libros_sapkowski_p', 'libros_espada_h3', 'libros_espada_alt', 'libros_sapkowski_alt'],
@@ -165,7 +166,7 @@
         },
         {
             id: 'libros_eisenhorn',
-            url: 'books.html#eisenhorn',
+            url: 'books.html',
             navKey: 'nav_libros',
             tituloKey: 'libros_eisenhorn_h3',
             claves: ['libros_eisenhorn_fig', 'libros_eisenhorn_p1', 'libros_abnett_fig', 'libros_abnett_p', 'libros_eisenhorn_h3', 'libros_eisenhorn_alt', 'libros_abnett_alt'],
@@ -173,7 +174,7 @@
         },
         {
             id: 'ayuda_guia',
-            url: 'ayuda.html#guia-secciones',
+            url: 'ayuda.html',
             navKey: 'footer_ayuda',
             tituloKey: 'ayuda_h2_guia',
             claves: ['ayuda_h2_guia', 'ayuda_p_intro', 'ayuda_inicio_p', 'ayuda_perfil_p', 'ayuda_musica_p', 'ayuda_multi_p', 'ayuda_libros_p', 'ayuda_buscador_p'],
@@ -181,7 +182,7 @@
         },
         {
             id: 'ayuda_retro',
-            url: 'ayuda.html#retroalimentacion',
+            url: 'ayuda.html',
             navKey: 'footer_ayuda',
             tituloKey: 'ayuda_h2_contacto',
             claves: ['ayuda_h2_contacto', 'ayuda_p_contacto1', 'ayuda_p_correo', 'ayuda_p_github', 'ayuda_p_contacto2'],
@@ -435,6 +436,20 @@
     }
 
     /**
+     * Construye el enlace a un apartado con un fragmento de texto (#:~:text=título). Los navegadores
+     * actuales bajan hasta la primera aparición de ese texto en la página y lo resaltan; los que no lo
+     * admiten abren la página desde arriba. El guion y la coma tienen significado propio en la sintaxis
+     * del fragmento, así que se codifican también.
+     * @param {string} url Página del apartado.
+     * @param {string} titulo Título visible del apartado en el idioma activo.
+     * @returns {string} Enlace con el fragmento de texto, o solo la página si no hay título.
+     */
+    function enlaceConFragmento(url, titulo) {
+        if (!titulo) return url;
+        return url + '#:~:text=' + encodeURIComponent(titulo).replace(/-/g, '%2D');
+    }
+
+    /**
      * Obtiene el idioma activo: primero el guardado en localStorage, después el selector
      * de idioma de la cabecera y, por último, el atributo lang del documento.
      * @returns {'es'|'en'} Código del idioma activo.
@@ -483,8 +498,8 @@
      * 4. Se escribe el resumen en la región aria-live y la lista de resultados.
      */
     async function ejecutarBusqueda() {
-        const resumenEl = document.getElementById('resumen-busqueda');
-        const listaEl = document.getElementById('lista-resultados');
+        const resumenEl = document.querySelector('main p[aria-live]');
+        const listaEl = document.querySelector('main > section > ol');
         const inputHeader = document.getElementById('campo-busqueda');
 
         // Solo se ejecuta en buscar.html, que es la página que contiene la lista de resultados
@@ -553,7 +568,7 @@
                 const titulo = extracto.titulo || dictActivo[ent.tituloKey] || ent.tituloDirecto || dictActivo[ent.navKey] || '';
 
                 resultados.push({
-                    url: ent.url,
+                    url: enlaceConFragmento(ent.url, ent.tituloDirecto || dictActivo[ent.tituloKey]),
                     titulo: titulo,
                     seccion: seccion,
                     snippetHtml: extracto.snippetHtml

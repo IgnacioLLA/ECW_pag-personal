@@ -16,7 +16,6 @@
     </script>
 </head>
 <body data-pagina="multi">
-    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
         <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
         <nav aria-label="Navegación principal" data-i18n-aria="aria_nav_principal">
@@ -31,7 +30,7 @@
         <search>
             <form action="buscar.html" method="get">
                 <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
-                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
+                <input type="search" id="campo-busqueda" name="q" placeholder="Buscar..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
                 <button type="submit" data-i18n="buscar_boton">Buscar</button>
             </form>
         </search>
@@ -45,7 +44,7 @@
         </form>
     </header>
 
-    <main id="contenido-principal">
+    <main>
         <nav aria-label="Migas de pan" data-i18n-aria="aria_migas_pan">
             <p data-i18n="migas_estas_en">Estás en:</p>
             <ol>
@@ -58,8 +57,8 @@
             <h2 data-i18n="multi_juegos_h2">Mis Videojuegos Favoritos</h2>
             <p data-i18n="multi_juegos_intro">Una selección de los títulos a los que más horas he dedicado y que más me han marcado.</p>
             
-            <article id="majoras">
-                <h4 data-i18n="multi_majoras_h4">The Legend of Zelda: Majora's Mask</h4>
+            <article>
+                <h3 data-i18n="multi_majoras_h4">The Legend of Zelda: Majora's Mask</h3>
                 <figure>
                     <img src="multimedia/photo/majoras.jpg" alt="Portada de Zelda Majora's Mask" width="600" height="300" data-i18n-alt="multi_majoras_alt">
                     <figcaption data-i18n="multi_majoras_fig">Uno de los juegos más oscuros de la saga.</figcaption>
@@ -67,24 +66,26 @@
                 <p data-i18n="multi_majoras_p">La mecánica de los tres días y la atmósfera opresiva de Termina hacen de este juego una obra maestra. Pese a que lo jugué por primera vez en la 3DS, la versatilidad de los días y las misiones limitadas en el tiempo junto con las mecánicas de las máscaras lo hacen una combinación memorable.</p>
             </article>
 
-            <article id="dark-souls">
-                <h4 data-i18n="multi_ds3_h4">Dark Souls III</h4>
+            <article>
+                <h3 data-i18n="multi_ds3_h4">Dark Souls III</h3>
                 <p data-i18n="multi_ds3_p">Primer juego de la saga Souls a la que jugué. Marcó en gran medida mi modo de afrontar los juegos similares y estableció un estándar para la dificultad y el diseño de niveles.</p>
                 <figure>
                     <video controls preload="metadata" poster="multimedia/photo/ds3_poster.jpg">
                         <source src="multimedia/video/ds3_clip.mp4" type="video/mp4">
+                        <track kind="subtitles" src="multimedia/video/ds3_clip.es.vtt" srclang="es" label="Español" default>
+                        <track kind="captions" src="multimedia/video/ds3_clip.en.vtt" srclang="en" label="English">
                         Tu navegador no soporta el elemento de vídeo.
                     </video>
-                    <figcaption data-i18n="multi_ds3_fig">Gameplay de Dark Souls III.</figcaption>
+                    <figcaption data-i18n="multi_ds3_fig">Vídeo de una partida de Dark Souls III.</figcaption>
                 </figure>
                 <details>
                     <summary data-i18n="multi_video_desc_summary">Descripción</summary>
-                    <p data-i18n="multi_ds3_desc">Clip breve de partida real (<em>gameplay</em>) de <cite>Dark Souls III</cite> que muestra su sistema de combate y ambientación.</p>
+                    <p data-i18n="multi_ds3_desc">Clip breve de una partida real de <cite>Dark Souls III</cite> que muestra su sistema de combate y ambientación.</p>
                 </details>
             </article>
 
-            <article id="for-honor">
-                <h4 data-i18n="multi_forhonor_h4">For Honor</h4>
+            <article>
+                <h3 data-i18n="multi_forhonor_h4">For Honor</h3>
                 <figure>
                     <img src="multimedia/photo/forhonor.jpg" alt="Pantalla de For Honor" width="600" height="337" loading="lazy" data-i18n-alt="multi_forhonor_alt">
                     <figcaption data-i18n="multi_forhonor_fig">Caballeros, Vikingos y Samuráis en combate realista.</figcaption>
@@ -94,15 +95,17 @@
         </section>
 
         <section>
-            <h3 data-i18n="multi_cine_h3">Mis Películas y Series</h3>
+            <h2 data-i18n="multi_cine_h3">Mis Películas y Series</h2>
             <p data-i18n="multi_cine_intro">Pese a que no soy un gran fanático de las películas y series, siempre hay alguna obra que por trama o mera nostalgia me engancha y hace volver constantemente.</p>
             
-            <article id="piratas-caribe">
-                <h4 data-i18n="multi_piratas_h4">Piratas del Caribe</h4>
+            <article>
+                <h3 data-i18n="multi_piratas_h4">Piratas del Caribe</h3>
                 <p data-i18n="multi_piratas_p">Una saga de aventuras fantástica con uno de los personajes más icónicos del cine: el Capitán Jack Sparrow. La banda sonora de Hans Zimmer es sencillamente legendaria.</p>
                 <figure>
                     <video controls preload="metadata" poster="multimedia/photo/pc_poster.jpg">
                         <source src="multimedia/video/pc_clip.mp4" type="video/mp4">
+                        <track kind="captions" src="multimedia/video/pc_clip.es.vtt" srclang="es" label="Español" default>
+                        <track kind="captions" src="multimedia/video/pc_clip.en.vtt" srclang="en" label="English">
                         Tu navegador no soporta el elemento de vídeo.
                     </video>
                     <figcaption data-i18n="multi_piratas_fig">La icónica entrada del Capitán Jack Sparrow.</figcaption>
@@ -113,8 +116,8 @@
                 </details>
             </article>
 
-            <article id="castle">
-                <h4 data-i18n="multi_castle_h4">Castle</h4>
+            <article>
+                <h3 data-i18n="multi_castle_h4">Castle</h3>
                 <figure>
                     <img src="multimedia/photo/castle.jpg" alt="Logo de la serie Castle" width="300" height="401" loading="lazy" data-i18n-alt="multi_castle_alt">
                     <figcaption data-i18n="multi_castle_fig">Richard Castle y Kate Beckett.</figcaption>
@@ -122,8 +125,8 @@
                 <p data-i18n="multi_castle_p">La dinámica entre el escritor de novelas de misterio y la inspectora de policía es genial. Fue la primera serie policíaca que vi y se ha convertido en un referente del género sin importar los años que pasen. Combina perfectamente el humor con la resolución de casos policíacos, manteniéndote enganchado en cada episodio.</p>
             </article>
 
-            <article id="dr-house">
-                <h4 data-i18n="multi_house_h4">Dr. House</h4>
+            <article>
+                <h3 data-i18n="multi_house_h4">Dr. House</h3>
                 <figure>
                     <img src="multimedia/photo/house.jpg" alt="Gregory House" width="300" height="450" loading="lazy" data-i18n-alt="multi_house_alt">
                     <figcaption data-i18n="multi_house_fig">El Dr. House, el médico que no confía en sus pacientes ni sus compañeros.</figcaption>

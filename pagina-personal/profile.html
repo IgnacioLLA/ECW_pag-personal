@@ -16,7 +16,6 @@
     </script>
 </head>
 <body data-pagina="profile">
-    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
         <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
         <nav aria-label="Navegación principal" data-i18n-aria="aria_nav_principal">
@@ -31,7 +30,7 @@
         <search>
             <form action="buscar.html" method="get">
                 <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
-                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
+                <input type="search" id="campo-busqueda" name="q" placeholder="Buscar..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
                 <button type="submit" data-i18n="buscar_boton">Buscar</button>
             </form>
         </search>
@@ -45,7 +44,7 @@
         </form>
     </header>
 
-    <main id="contenido-principal">
+    <main>
         <nav aria-label="Migas de pan" data-i18n-aria="aria_migas_pan">
             <p data-i18n="migas_estas_en">Estás en:</p>
             <ol>
@@ -60,17 +59,17 @@
                 <figcaption data-i18n="profile_foto_cap">Ignacio Llaneza Aller (Nacho).</figcaption>
             </figure>
 
-            <h3 id="quien-soy" data-i18n="profile_quien_soy_h3">¿Quién soy?</h3>
+            <h3 data-i18n="profile_quien_soy_h3">¿Quién soy?</h3>
             <p data-i18n="profile_quien_soy_p">¡Buenas! Soy Nacho, tengo 22 años, graduado en Ingeniería Informática por la Universidad de Oviedo y actualmente estudiante del Máster Universitario en Ingeniería Web. Este espacio web personal forma parte de la asignatura de Estándares y Computación Web.</p>
         </section>
 
-        <section id="intereses">
+        <section>
             <h3 data-i18n="profile_intereses_h3">Mis Intereses</h3>
             <p data-i18n="profile_intereses_p">Me encantan los animales, tengo dos gatas llamadas Hestia y Xana además de un perro llamado Seiba. Me gusta <a href="audio.html">escuchar música</a>, <a href="multimedia.html">los videojuegos y las películas y series</a> y <a href="books.html">leer libros</a> (principalmente de fantasía). He jugado durante muchos años al balonmano y toco la guitarra española y eléctrica. Me encantan los juegos de cartas y de mesa.</p>
         </section>
 
-        <section id="experiencia" aria-labelledby="formacion-experiencia">
-            <h3 id="formacion-experiencia" data-i18n="profile_exp_h3">Formación y Experiencia</h3>
+        <section aria-label="Formación y Experiencia" data-i18n-aria="profile_exp_h3">
+            <h3 data-i18n="profile_exp_h3">Formación y Experiencia</h3>
             <p data-i18n="profile_exp_intro">Trayectoria académica y profesional en el ámbito de la ingeniería del software y el desarrollo web:</p>
             <ol>
                 <li>
@@ -95,8 +94,8 @@
             </ol>
         </section>
 
-        <section aria-labelledby="referencias-avales">
-            <h3 id="referencias-avales" data-i18n="profile_ref_h3">Referencias y Avales</h3>
+        <section aria-label="Referencias y Avales" data-i18n-aria="profile_ref_h3">
+            <h3 data-i18n="profile_ref_h3">Referencias y Avales</h3>
             <p data-i18n="profile_ref_p">Tutores académicos de mi Trabajo de Fin de Grado en la Universidad de Oviedo:</p>
             <ul>
                 <li>

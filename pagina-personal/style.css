@@ -11,12 +11,12 @@ body {
 }
 
 a {
-    color: #1d6fa5;
+    color: #14507a;
     text-underline-offset: 0.2em;
 }
 
 a:hover {
-    color: #155885;
+    color: #0e3a5a;
 }
 
 mark {
@@ -35,24 +35,6 @@ summary:focus-visible,
 select:focus-visible {
     outline: 0.1875rem solid #f39c12;
     outline-offset: 0.125rem;
-}
-
-body > a[href="#contenido-principal"] {
-    position: fixed;
-    top: 0.75rem;
-    left: -9999px;
-    z-index: 1000;
-    background-color: #ffffff;
-    color: #2c3e50;
-    padding: 0.625rem 1rem;
-    border-radius: 0.25rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
-}
-
-body > a[href="#contenido-principal"]:focus {
-    left: 0.75rem;
 }
 
 header {
@@ -227,6 +209,11 @@ header search label {
     margin-bottom: 0.25rem;
 }
 
+header search input[type="search"]::placeholder {
+    color: #555555;
+    opacity: 1;
+}
+
 header search input[type="search"] {
     flex: 1 1 10rem;
     min-width: 0;
@@ -246,7 +233,7 @@ header search button[type="submit"] {
     padding: 0.4rem 1.125rem;
     font-size: 0.95rem;
     font-weight: 700;
-    background-color: #1d6fa5;
+    background-color: #14507a;
     color: #ffffff;
     border: 0.125rem solid #ffffff;
     border-radius: 0.25rem;
@@ -374,7 +361,7 @@ main li:last-child {
 
 section[aria-labelledby="resumen-secciones"] ul,
 section > ol,
-section[aria-labelledby="referencias-avales"] ul {
+section[data-i18n-aria="profile_ref_h3"] ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
@@ -384,12 +371,12 @@ section[aria-labelledby="referencias-avales"] ul {
 }
 
 section[aria-labelledby="resumen-secciones"] li,
-section[aria-labelledby="referencias-avales"] li {
+section[data-i18n-aria="profile_ref_h3"] li {
     margin-bottom: 0;
 }
 
 section[aria-labelledby="resumen-secciones"] article,
-section[aria-labelledby="referencias-avales"] article {
+section[data-i18n-aria="profile_ref_h3"] article {
     height: 100%;
     box-sizing: border-box;
     margin-bottom: 0;
@@ -398,7 +385,7 @@ section[aria-labelledby="referencias-avales"] article {
 section > ol li {
     background-color: #f8f9fa;
     border: 0.0625rem solid #e2e8f0;
-    border-left: 0.25rem solid #1d6fa5;
+    border-left: 0.25rem solid #14507a;
     border-radius: 0.375rem;
     padding: 0.875rem 1rem;
     margin-bottom: 0;
@@ -429,11 +416,11 @@ section > ol p:last-child {
 }
 
 section > ol h4,
-section[aria-labelledby="referencias-avales"] h4 {
+section[data-i18n-aria="profile_ref_h3"] h4 {
     margin-bottom: 0.35rem;
 }
 
-section[aria-labelledby="referencias-avales"] address {
+section[data-i18n-aria="profile_ref_h3"] address {
     font-style: normal;
     font-size: 0.95rem;
     margin-top: 0.5rem;
@@ -544,7 +531,7 @@ input, textarea, button {
 }
 
 button {
-    background-color: #1d6fa5;
+    background-color: #14507a;
     color: #ffffff;
     border: none;
     cursor: pointer;
@@ -555,34 +542,34 @@ button {
 
 button:hover,
 button:focus-visible {
-    background-color: #155885;
+    background-color: #0e3a5a;
 }
 
 address {
     font-style: normal;
 }
 
-section#retroalimentacion address {
+main > section > address {
     background-color: #f8f9fa;
     border: 0.0625rem solid #e2e8f0;
-    border-left: 0.25rem solid #1d6fa5;
+    border-left: 0.25rem solid #14507a;
     border-radius: 0.375rem;
     padding: 1rem 1.25rem;
     margin: 1.25rem 0;
 }
 
-section#retroalimentacion address ul {
+main > section > address ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
 }
 
-section#retroalimentacion address li {
+main > section > address li {
     margin-bottom: 0.5rem;
     font-size: 1rem;
 }
 
-section#retroalimentacion address li:last-child {
+main > section > address li:last-child {
     margin-bottom: 0;
 }
 
@@ -659,7 +646,7 @@ footer a:focus-visible {
         padding: 0.75rem;
     }
 
-    section#retroalimentacion address {
+    main > section > address {
         padding: 0.875rem 0.75rem;
         margin: 1rem 0;
     }
@@ -762,7 +749,7 @@ footer a:focus-visible {
     }
 
     section[aria-labelledby="resumen-secciones"] ul,
-    section[aria-labelledby="referencias-avales"] ul {
+    section[data-i18n-aria="profile_ref_h3"] ul {
         grid-template-columns: repeat(2, 1fr);
     }
 }

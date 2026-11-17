@@ -16,7 +16,6 @@
     </script>
 </head>
 <body data-pagina="buscar">
-    <a href="#contenido-principal" data-i18n="salto_contenido">Saltar al contenido</a>
     <header>
         <h1><a href="index.html" data-i18n="sitio_titulo">Mi rincón web</a></h1>
         <nav aria-label="Navegación principal" data-i18n-aria="aria_nav_principal">
@@ -31,7 +30,7 @@
         <search>
             <form action="buscar.html" method="get">
                 <label for="campo-busqueda" data-i18n="buscar_label">Buscar en el sitio:</label>
-                <input type="search" id="campo-busqueda" name="q" placeholder="Ej. Sanderson, TFG, Folk..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
+                <input type="search" id="campo-busqueda" name="q" placeholder="Buscar..." title="Introduce una palabra clave para buscar en el sitio (por ejemplo: Sanderson, TFG, Folk)" required data-i18n-placeholder="buscar_placeholder" data-i18n-title="buscar_ayuda_title">
                 <button type="submit" data-i18n="buscar_boton">Buscar</button>
             </form>
         </search>
@@ -45,7 +44,7 @@
         </form>
     </header>
 
-    <main id="contenido-principal">
+    <main>
         <nav aria-label="Migas de pan" data-i18n-aria="aria_migas_pan">
             <p data-i18n="migas_estas_en">Estás en:</p>
             <ol>
@@ -55,8 +54,8 @@
         </nav>
         <section>
             <h2 data-i18n="buscar_h2">Resultados de búsqueda</h2>
-            <p id="resumen-busqueda" aria-live="polite">Introduce un término en el formulario superior para buscar contenidos en el sitio.</p>
-            <ol id="lista-resultados">
+            <p aria-live="polite">Introduce un término en el formulario superior para buscar contenidos en el sitio.</p>
+            <ol>
             </ol>
         </section>
     </main>
