@@ -336,6 +336,11 @@ h3, h4 {
 
 p {
     margin-top: 0;
+    margin-bottom: 2em;
+}
+
+main p {
+    max-width: 62ch;
 }
 
 p:last-child {
